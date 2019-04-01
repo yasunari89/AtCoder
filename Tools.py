@@ -40,22 +40,25 @@ def divisors(x):
 def XORfromZERO(x):
     '''
     Σ[0-(x-1)]Π(n xor (n+1))を返す関数
-    つまり0からxまでの全ての数をXORする関数
+    つまり0からxまでの全ての整数をXORする関数
     '''
     if type(x) != int:
         print(Errors.not_int_error.value)
-    rest = x % 2
-    quotient = (x + rest) / 2
-    if rest == 0:
-        if quotient % 2 == 0:
-            return 0 ^ x
-        else:
-            return 1 ^ x
+    elif x < 0:
+        print(Errors.not_zero_and_over)
     else:
-        if quotient % 2 == 0:
-            return 0
+        rest = x % 2
+        quotient = (x + rest) / 2
+        if rest == 0:
+            if quotient % 2 == 0:
+                return 0 ^ x
+            else:
+                return 1 ^ x
         else:
-            return 1
+            if quotient % 2 == 0:
+                return 0
+            else:
+                return 1
 
 
 
@@ -64,3 +67,4 @@ def XORfromZERO(x):
 class Errors(Enum):
     reverse_variables_error = "Error: 引数の順番が逆！"
     not_int_error = "Error: 引数はint型に！"
+    not_zero_and_over = "Error: 引数は0以上！"
