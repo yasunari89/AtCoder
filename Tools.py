@@ -1,5 +1,4 @@
-from enum import Enum
-
+from Errors import Errors
 
 def maxDivisor(divisor, divided):
     '''最大公約数を返す関数'''
@@ -45,7 +44,7 @@ def XORfromZERO(x):
     if type(x) != int:
         print(Errors.not_int_error.value)
     elif x < 0:
-        print(Errors.not_zero_and_over)
+        print(Errors.not_zero_and_over_error)
     else:
         rest = x % 2
         quotient = (x + rest) / 2
@@ -59,12 +58,3 @@ def XORfromZERO(x):
                 return 0
             else:
                 return 1
-
-
-
-
-
-class Errors(Enum):
-    reverse_variables_error = "Error: 引数の順番が逆！"
-    not_int_error = "Error: 引数はint型に！"
-    not_zero_and_over = "Error: 引数は0以上！"
