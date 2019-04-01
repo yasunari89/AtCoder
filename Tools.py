@@ -45,7 +45,7 @@ def XORfromZERO(x):
     if type(x) != int:
         print(Errors.not_int_error.value)
     elif x < 0:
-        print(Errors.not_zero_and_over_error)
+        print(Errors.not_zero_and_over_error.value)
     else:
         rest = x % 2
         quotient = (x + rest) / 2
