@@ -1,5 +1,6 @@
 from Errors import Errors
 
+
 def maxDivisor(divisor, divided):
     '''最大公約数を返す関数'''
     if divisor > divided:
@@ -38,7 +39,7 @@ def divisors(x):
 
 def XORfromZERO(x):
     '''
-    Σ[0-(x-1)]Π(n xor (n+1))を返す関数
+    Σ[0:(x-1)]Π(n xor (n+1))を返す関数
     つまり0からxまでの全ての整数をXORする関数
     '''
     if type(x) != int:
