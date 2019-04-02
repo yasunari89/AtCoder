@@ -29,7 +29,7 @@ class UnionFind:
         if self.parent[A] < 0:
             return A
         else:
-            self.parent[A] = root(self.parent[A])
+            self.parent[A] = self.root(self.parent[A])
             return self.parent[A]
 
     def size(self, A):
@@ -66,8 +66,8 @@ UF = UnionFind(islands)
 
 for i in range(bridges):
     a, b = map(int, input().split())
-    A.append(a)
-    B.append(b)
+    A.append(a-1)
+    B.append(b-1)
 
 for i in range(bridges-1, 0, -1):
     if UF.root(A[i]) != UF.root(B[i]):
@@ -77,4 +77,4 @@ for i in range(bridges-1, 0, -1):
         ans[i-1] = ans[i]
 
 for i in range(bridges):
-    print(ans[bridges-i])
+    print(ans[i])
