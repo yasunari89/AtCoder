@@ -59,3 +59,29 @@ def XORfromZERO(x):
                 return 0
             else:
                 return 1
+
+
+def factorial(n):
+    'n!を返す関数。'
+    if type(n) != int:
+        print(Errors.not_int_error.value)
+    else:
+        ans = 1
+        while(n > 0):
+            ans *= n
+            n -= 1
+        return ans
+
+
+def nCr(n, r):
+    '''
+    nCrを返す関数。
+    階乗を返すfactorial()関数に依存している。
+    過剰を利用しているので、rが小さい時はここで計算量を取られていs舞うので使わない方が良い。
+    組み合わせの値は必ず整数値になるのでintとしてreturnしている。
+    '''
+    if type(n) != int or type(r) != int:
+        print(Errors.not_int_error.value)
+    else:
+        ans = factorial(n) / (factorial(r) * factorial(n-r))
+        return int(ans)
