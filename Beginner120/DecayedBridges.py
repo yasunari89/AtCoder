@@ -1,20 +1,3 @@
-def factorial(n):
-    'n!を返す関数'
-    ans = 1
-    while(n > 0):
-        ans *= n
-        n -= 1
-    return ans
-
-def nCr(n, r):
-    '''
-    nCrを返す関数
-    階乗を返すfactorial()関数に依存している
-    組み合わせの値は必ず整数値になるのでintとしてreturnしている
-    '''
-    ans = factorial(n) / (factorial(r) * factorial(n-r))
-    return int(ans)
-
 class UnionFind:
     def __init__(self, N):
         '''
@@ -60,7 +43,8 @@ class UnionFind:
 islands, bridges = map(int, input().split())
 A, B = [], []
 ans = [0 for i in range(bridges)]
-ans[bridges-1] = nCr(islands, 2)
+# ans[bridges-1] = nCr(islands, 2)
+ans[bridges-1] = int(islands * (islands-1) / 2)
 
 UF = UnionFind(islands)
 
