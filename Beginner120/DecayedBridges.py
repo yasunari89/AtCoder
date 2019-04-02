@@ -43,7 +43,6 @@ class UnionFind:
 islands, bridges = map(int, input().split())
 A, B = [], []
 ans = [0 for i in range(bridges)]
-# ans[bridges-1] = nCr(islands, 2)
 ans[bridges-1] = int(islands * (islands-1) / 2)
 
 UF = UnionFind(islands)
