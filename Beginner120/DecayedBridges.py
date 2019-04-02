@@ -29,23 +29,24 @@ class UnionFind:
         if self.parent[A] < 0:
             return A
         else:
-            return self.parent[A] = root(self.parent[A])
+            self.parent[A] = root(self.parent[A])
+            return self.parent[A]
 
     def size(self, A):
         '自分のいるグループの頂点数を調べる。'
-        return -self.parent[root(A)]
+        return -self.parent[self.root(A)]
 
     def connect(self, A, B):
         '''
         AとBをくっつける。
         AとBを直接繋ぐのではなく、root(A)にroot(B)をくっつける。
         '''
-        A = root(A)
-        B = root(B)
+        A = self.root(A)
+        B = self.root(B)
         if A == B:
             # すでにくっついているからくっつけない。
             return False
-        elif size(A) < size(B):
+        elif self.size(A) < self.size(B):
             # 大小が逆だったらひっくり返す。
             A, B = B, A
         else:
@@ -55,3 +56,25 @@ class UnionFind:
         # Bの親をAに変更する。
         self.parent[B] = A
         return True
+
+islands, bridges = map(int, input().split())
+A, B = [], []
+ans = [0 for i in range(bridges)]
+ans[bridges-1] = nCr(islands, 2)
+
+UF = UnionFind(islands)
+
+for i in range(bridges):
+    a, b = map(int, input().split())
+    A.append(a)
+    B.append(b)
+
+for i in range(bridges-1, 0, -1):
+    if UF.root(A[i]) != UF.root(B[i]):
+        ans[i-1] = ans[i] - UF.size(A[i]) * UF.size(B[i])
+        UF.connect(A[i], B[i])
+    else:
+        ans[i-1] = ans[i]
+
+for i in range(bridges):
+    print(ans[bridges-i])
