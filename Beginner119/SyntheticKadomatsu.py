@@ -7,10 +7,16 @@ bamboos = [int(input()) for i in range(many)]
 # 解法: DFS or 4進数(4patternsで2の累乗だからできる)
 # PS: DFS(深さ優先探索), BFS(幅優先探索)
 
+infinity = 1e10
+
 def dfs(depth, a, b, c):
     if depth == many:
-        # 謎の-30
-        return abs(a-A) + abs(b-B) + abs(c-C) - 30
+        # 謎の場合分け
+        if min(a, b, c) > 0:
+            # 謎の-30
+            return abs(a-A) + abs(b-B) + abs(c-C) - 30
+        else:
+            return infinity
     else:
         ret0 = dfs(depth+1, a, b, c)
         ret1 = dfs(depth+1, a+bamboos[depth], b, c) + 10
