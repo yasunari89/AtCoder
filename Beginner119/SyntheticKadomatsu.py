@@ -13,7 +13,9 @@ def dfs(depth, a, b, c):
     if depth == many:
         # 謎の場合分け
         if min(a, b, c) > 0:
-            # 謎の-30
+            # 竹が何もない状態でも各竹に+10がかかっていることから-30する必要がある。
+            # また、+10が一個はないとベースとなる竹がないことになるので
+            # a,b,c = 0はコストを無限にすることで避ける。
             return abs(a-A) + abs(b-B) + abs(c-C) - 30
         else:
             return infinity
