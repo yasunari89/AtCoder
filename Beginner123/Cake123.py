@@ -4,21 +4,25 @@ B = sorted(list(map(int, input().split())))
 C = sorted(list(map(int, input().split())))
 all = sorted(A + B + C)
 
+indices = [-1, -1, -1]
+
 def sumABC(a, b, c):
     return A[indices[0]-a] + B[indices[1]-b] + C[indices[2]-c]
 
-indices = [-1, -1, -1]
-for times in range(K):
-    if times == 0:
-        print(A[indices[0]] + B[indices[1]] + C[indices[2]])
-    else:
-        ret0 = sumABC(1, 0, 0)
-        ret1 = sumABC(0, 1, 0)
-        ret2 = sumABC(0, 0, 1)
-        print(max(ret0, ret1, ret2))
-        if max(ret0, ret1, ret2) == ret0:
-            indices[0] += -1
-        elif max(ret0, ret1, ret2) == ret1:
-            indices[1] += -1
-        else:
-            indices[2] += -1
+print("answers")
+i = 0
+while(i < K):
+    ret0 = sumABC(0, 0, 0)
+    ret1 = sumABC(1, 0, 0)
+    ret2 = sumABC(0, 1, 0)
+    ret3 = sumABC(0, 0, 1)
+    ret4 = sumABC(1, 1, 0)
+    ret5 = sumABC(1, 0, 1)
+    ret6 = sumABC(0, 1, 1)
+    ret7 = sumABC(1, 1, 1)
+    returns = sorted([ret0, ret1, ret2, ret3, ret4, ret5, ret6, ret7])
+    for j in range(7, -1, -1):
+        i += 1
+        print(returns[j])
+    for _ in range(3):
+        indices[_] += -1
