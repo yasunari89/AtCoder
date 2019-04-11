@@ -9,11 +9,14 @@ def num(k):
 # 動的計画法
 # dp(i) := i本の最大桁数(i = 0,1,...,N)
 # constructor
-dp = [0 for _ in range(N+1)]
+inf = 1000
+# -infに設定しないと数字の選択時にミスる
+dp = [-inf for _ in range(N+1)]
+dp[0] = 0
 
-costs = [num(k) for k in A]
+cost_list = [num(k) for k in A]
 for i in range(1, N+1):
-    for cost in costs:
+    for cost in cost_list:
         if i - cost < 0:
             pass
         else:
@@ -22,13 +25,16 @@ for i in range(1, N+1):
 
 ans = ''
 many = N
-for _ in range(dp[N]):
+for d in range(dp[N]): # 各桁
     for k in sorted(A, reverse=True):
-        if dp[many - num(k)] == dp[many] - 1:
-            ans += str(k)
-            many -= num(k)
-            break
-        else:
+        if many - num(k) < 0:
             pass
+        else:
+            if dp[many - num(k)] == dp[many] - 1:
+                ans += str(k)
+                many -= num(k)
+                break
+            else:
+                pass
 
-print(dp)
+print(int(ans))
