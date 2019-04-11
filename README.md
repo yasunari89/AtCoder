@@ -2,14 +2,15 @@
 ## Reference
 https://kenkoooo.com/atcoder/?user=yasunari&kind=user
 
-## RE(Runtime Error)の原因
+## RE（Runtime Error）の原因
 - ゼロ徐算  
 - 配列の範囲外アクセス  
+
 徐算を書く時はゼロ徐算する可能性を考える。
 配列を書く時はlist[i +/- j]のような時は特に範囲外アクセスの可能性を考える。
 
 ## Pythonにおける知見
-### Digital Gifts
+### ABC119: Digital Gifts
 ```python
 money, currency = map(str, input().split())
 ```
