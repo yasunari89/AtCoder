@@ -10,6 +10,13 @@ https://kenkoooo.com/atcoder/?user=yasunari&kind=user
 配列を書く時は（list[i +/- j]のような時は特に）範囲外アクセスの可能性を考える。
 
 ## Pythonにおける知見
+### indexの所得方法
+例えば`list_a`の最大値を取るインデックスを取得したい時  
+```python
+max_index = list_a.index(max(list_a))
+```
+とすると速い。
+
 ### ABC119: Digital Gifts
 ```python
 money, currency = map(str, input().split())
