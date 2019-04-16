@@ -34,9 +34,9 @@ final = 2 * K
 answers = []
 
 # M = len(nums) = len(cumulative_sum)
-if M < 2 * K + 1:
-    print(len(S))
-    exit()
+# if M < 2 * K + 1:
+#     print(len(S))
+# else:
 if final <= M-1:
     while(final <= M-1):
         if start == 0:
@@ -50,6 +50,6 @@ if final <= M-1:
         final += 2
     print(max(answers))
 else:
-    print(cumulative_sum[0])
+    print(cumulative_sum[-1])
 
 # print(answers)
