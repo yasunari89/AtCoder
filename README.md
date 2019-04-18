@@ -26,6 +26,14 @@ pattern2:
 http://luzhiled.hatenablog.com/entry/2017/12/03/124453
 
 ## Pythonにおける知見
+### 実行時間制限とOrder
+- O(1e5)/sec: 余裕を持って間に合う  
+- O(1e6)/sec: おそらく間に合う  
+- O(1e7)/sec: 非常にシンプルな処理でない限り難しい
+
+## zfill
+右寄せゼロ埋め: `string.zfill(size)`
+
 ### indexの所得方法
 例えば`list_a`の最大値を取るインデックスを取得したい時  
 ```python
