@@ -31,6 +31,7 @@ class CharArrange:
 
 
 for i, char in enumerate(chars):
-    ca = CharArrange(char)
-    ca.run()
-    chars[i] = ca.char
+    CA = CharArrange(char)
+    CA.run()
+    chars[i] = CA.char
+    print(CA.char)
