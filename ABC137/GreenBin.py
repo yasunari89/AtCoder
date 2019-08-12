@@ -10,12 +10,12 @@ class CharArrange:
         self.char = char
 
     def run(self):
-        self.char = self.char2OrdList(self.char)
-        for pos in range(1, len(self.char)):
-            self.insertSort(self.char, pos, self.char[pos])
-        self.char = self.ordList2Str(self.char)
+        listChar = self.str2OrdList(self.char)
+        for pos in range(1, len(listChar)):
+            self.insertSort(listChar, pos, listChar[pos])
+        self.char = self.ordList2Str(listChar)
 
-    def char2OrdList(self, char):
+    def str2OrdList(self, char):
         return list(map(ord, char))
 
     def ordList2Str(self, ordList):
