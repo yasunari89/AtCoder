@@ -13,7 +13,7 @@ class CharArrange:
         list_char = self.str2ord_list(self.char)
         for pos in range(1, len(list_char)):
             self.insert_sort(list_char, pos, list_char[pos])
-        self.char = self.ordList2Str(list_char)
+        self.char = self.ord_list2str(list_char)
 
     def order_run(self, chars):
         for i, char in enumerate(chars):
@@ -25,7 +25,7 @@ class CharArrange:
     def str2ord_list(self, char):
         return list(map(ord, char))
 
-    def ordList2Str(self, ordList):
+    def ord_list2str(self, ordList):
         return ''.join(list(map(chr, ordList)))
 
     def ord_list2ord_concat(self, ord_list):
