@@ -43,20 +43,16 @@ class CharArrange:
         return A
 
 
+counter = 0
+hash_table = {}
 for i, char in enumerate(chars):
     CA = CharArrange(char)
     CA.char_run()
-    chars[i] = CA.char
-CA.order_run(chars)
-ord_chars = CA.ord_chars
+    if CA.char in hash_table:
+        hash_table[CA.char] += 1
+    else:
+        hash_table[CA.char] = 0
+    counter += hash_table[CA.char]
 
-counter = 0
-for i in range(len(ord_chars) - 1):
-    k = i + 1
-    while (ord_chars[i] == ord_chars[k]):
-        counter += 1
-        if k == len(ord_chars) - 1:
-            break
-        else:
-            k += 1
+
 print(counter)
