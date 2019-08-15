@@ -1,7 +1,5 @@
-from Errors import Errors
-
 class UnionFind:
-    
+
     def __init__(self, N):
         '''
         親の番号を格納する。親だった場合は-(その集合のサイズ)とする。
