@@ -3,6 +3,7 @@
 - 動的計画法 / DP: https://qiita.com/drken/items/a5e6fe22863b7992efdb
     - 桁DP: http://luzhiled.hatenablog.com/entry/2017/12/03/124453
 - Union-Find / Disjoint-Set: https://atc001.contest.atcoder.jp/tasks/unionfind_a  
+- hash_table: https://qiita.com/tenten1010/items/da4084f937ad07e70164  
 
 ## 実行時間制限とOrder
 Pythonの場合
