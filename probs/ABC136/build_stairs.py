@@ -3,15 +3,14 @@ from typing import List
 N: int = int(input())
 H: List[int] = list(map(int, input().split()))
 
-used_index: List[bool] = [False for _ in range(N)]
-while (True):
-    H_max_index: int = H.index(max(H))
-    H[H_max_index] -= 1
-    if not used_index[H_max_index]:
-        used_index[H_max_index] = True
-    else:
+exit_flag: bool = False
+for i in range(N-1, 0, -1):
+    if H[i-1] - H[i] == 1:
+        H[i-1] -= 1
+    elif H[i-1] - H[i] > 1:
+        exit_flag = True
         print('No')
         break
-    if max(H) == H[-1]:
-        print('Yes')
-        break
+
+if not exit_flag:
+    print('Yes')
