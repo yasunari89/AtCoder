@@ -6,7 +6,7 @@ for _ in range(height):
     row = [l for l in input()]
     maze.append(row)
 
-visited = []
+reached = [[False for _ in range(width)] for _ in range(height)]
 def search(x, y):
     if x < 0 or y < 0:
         return 
@@ -14,13 +14,14 @@ def search(x, y):
         return 
     if maze[x][y] == '#':
         return
-    if (x, y) in visited:
+    if reached[x][y] == True:
         return 
-    visited.append((x, y))
+    
+    reached[x][y] = True
     search(x+1, y)
     search(x, y+1)
     search(x-1, y)
     search(x, y-1)
 
 search(0, 0)
-print(visited)
+pprint(reached)
