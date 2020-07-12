@@ -1,4 +1,6 @@
 from pprint import pprint
+import sys
+sys.setrecursionlimit(10**8)
 
 height, width = map(int, input().split())
 maze = []
