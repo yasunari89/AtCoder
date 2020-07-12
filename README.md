@@ -19,3 +19,5 @@ Pythonの場合
 ## Runtime Error
 - ゼロ徐算  
 - 配列の範囲外アクセス
+- 再帰回数の制限超え
+  - `sys.setrecursionlimit(10**8)`とかすると解決
