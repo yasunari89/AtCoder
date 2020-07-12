@@ -36,7 +36,7 @@ while len(queues) > 0:
         if visited[y+dy][x+dx]:
             continue
         visited[y+dy][x+dx] = True
-        times[y+dy][x+dx] = min(times[y][x]+1, times[y+dy][x+dx])
+        times[y+dy][x+dx] = times[y][x] + 1
         queues.append((y+dy, x+dx))
 
 print(times[goal.y][goal.x])
