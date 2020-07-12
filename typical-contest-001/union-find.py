@@ -1,3 +1,5 @@
+from pprint import pprint
+
 n, q = map(int, input().split())
 queries = []
 for _ in range(q):
@@ -33,3 +35,5 @@ for query in queries:
             print('No')
     else:
         unite(vertexa, vertexb)
+
+pprint(parent)
