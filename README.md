@@ -1,23 +1,16 @@
-## アルゴリズム手法
-[累積和](https://qiita.com/drken/items/56a6b68edef8fc605821), 
-[動的計画法 (DP)](https://qiita.com/drken/items/a5e6fe22863b7992efdb), 
-[桁DP](http://luzhiled.hatenablog.com/entry/2017/12/03/124453), 
-[Union-Find (Disjoint-Set)](https://atc001.contest.atcoder.jp/tasks/unionfind_a), 
-[hash table](https://qiita.com/tenten1010/items/da4084f937ad07e70164)
+| 計算量       | Python         |
+| ------------ | -------------- |
+| O(1e5) / sec | 余裕で間に合う |
+| O(1e6) / sec | 多分間に合う   |
+| O(1e7) / sec | かなり厳しい   |
 
-## 実行時間制限とOrder
-Pythonの場合
-- O(1e5)/sec: 余裕を持って間に合う  
-- O(1e6)/sec: おそらく間に合う  
-- O(1e7)/sec: 非常にシンプルな処理でない限り難しい
+| 処理     | 計算量 |
+| -------- | ------ |
+| `pop()`  | O(1)   |
+| `pop(i)` | O(n)   |
 
-## Python便利ツール
-- bisect: 二分探索
-- zfill: 右寄せゼロ埋め
-- list.index(value): index取得
-
-## Runtime Error
-- ゼロ徐算  
-- 配列の範囲外アクセス
-- 再帰回数の制限超え
-  - `sys.setrecursionlimit(10**8)`とかすると解決
+| Runtime Error              | 解決                                     |
+| -------------------------- | ---------------------------------------- |
+| ゼロ徐算                   |                                          |
+| 配列の範囲外アクセス       |                                          |
+| 再帰関数の再起制限回数超え | `sys.setrecursionlimit(10**8)`などと設定 |
