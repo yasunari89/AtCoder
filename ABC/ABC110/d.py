@@ -7,8 +7,6 @@ def cumlative_sum(x: List) -> List:
     for i, v in enumerate(x):
         res.append(res[i] + v)
     return res
-
-
 def prime_factorization(x: int) -> Dict[int, int]:
     '''
     素因数分解: output = Dict[素因数, 乗数]
@@ -33,8 +31,6 @@ def prime_factorization(x: int) -> Dict[int, int]:
         res[x] = 1
 
     return res
-
-
 def factorial(x: int) -> int:
     '''階乗'''
     res = 1
@@ -42,7 +38,20 @@ def factorial(x: int) -> int:
         res *= x
         x -= 1
     return res
-
 def combination(x: int, y: int) -> int:
     '''xCy'''
-    return factorial(x) // (factorial(y) * factorial(x - y))
+    res = 1
+    for _ in range(y):
+        res *= x
+        x -= 1
+    res //= factorial(y)
+    return res
+
+n, m = map(int, input().split())
+prime_factors_dict = prime_factorization(m)
+ans = 1
+for power in prime_factors_dict.values():
+    ans *= combination(power+n-1, n-1)
+    if ans > 1000000000 + 7:
+        ans %= 1000000000 + 7
+print(ans)
